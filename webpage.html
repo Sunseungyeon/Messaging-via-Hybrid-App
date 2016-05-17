@@ -1,0 +1,52 @@
+<html>
+<head>
+    <style type="text/css">
+        .btn{ width:70; height :40;
+        font-size:25px; color:#33F5F5; text-align:center;
+        margin-top:4px; border:1; }
+        body{ text-align:center; margin-top:70px; }
+        .num{ width:125; }
+        .clear{ height :30; font-size:18px; margin-top:10px; margin-left:10px;}
+        .submit{ height :30; font-size:18px; margin-top:10px; margin-left:10px; }
+    </style>
+</head>
+<body>
+<!-- number button -->
+<input type="button" class="btn" value="1" id="1" onclick="phoneNumber('1')"/>
+<input type="button" class="btn" value="2" id="2" onclick="phoneNumber('2')"/>
+<input type="button" class="btn" value="3" id="3" onclick="phoneNumber('3')"/><br>
+<input type="button" class="btn" value="4" id="4" onclick="phoneNumber('4')"/>
+<input type="button" class="btn" value="5" id="5" onclick="phoneNumber('5')"/>
+<input type="button" class="btn" value="6" id="6" onclick="phoneNumber('6')"/><br>
+<input type="button" class="btn" value="7" id="7" onclick="phoneNumber('7')"/>
+<input type="button" class="btn" value="8" id="8" onclick="phoneNumber('8')"/>
+<input type="button" class="btn" value="9" id="9" onclick="phoneNumber('9')"/><br>
+<input type="button" class="btn" value="*" id="*" onclick="phoneNumber('*')"/>
+<input type="button" class="btn" value="0" id="0" onclick="phoneNumber('0')"/>
+<input type="button" class="btn" value="#" id="#" onclick="phoneNumber('#')"/><br>
+<!-- phone number textarea -->
+<p>Mobile Number: <input type="text" id="number" size="20" class="num"/></p><br>
+<!-- message area -->
+<textarea rows="5" cols="20" maxlength="200" placeholder="Message" id="message" class="mess"></textarea><br>
+<!-- clear and submit button -->
+<input type="button" class="submit" value="Clear" id="clear" onclick="cleartxt()"/>
+<input type="button" class="submit" value="Submit" id="submit" onclick="sendSMS()"/>
+<script type="text/javascript">
+var num, mss;
+//when a press number button, the number return phone number textarea
+function phoneNumber(n){
+document.getElementById("number").value=Android.phoneNumber(n);
+}
+//send messaage
+function sendSMS(){
+mss = document.getElementById("message").value;
+num=document.getElementById("number").value;
+Android.sendSMS(num, mss);
+}
+//clear phone number text area
+function cleartxt(){
+document.getElementById("number").value=Android.cleartxt();
+}
+</script>
+</body>
+</html>
